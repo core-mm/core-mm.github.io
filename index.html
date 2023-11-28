@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
+  <meta name="description" content="CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large
+Language Models">
   <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
   <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
   <meta property="og:url" content="URL OF THE WEBSITE"/>
@@ -40,12 +41,21 @@ Language Models</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+
+  <link rel="icon" href="images/logo.png">
+
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 </head>
 <body>
+  <div class="container">
+    <div class="column has-text-centered">
+      <img style="max-width: 200px; margin-bottom: -50px;" src="images/logo.png">
+    </div>
+  </div>
+
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -137,36 +147,18 @@ Language Models</h1>
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
-        <!-- Your video here -->
-        <!-- <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section> -->
-<!-- End teaser video -->
-
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+          CORE-MM is an Open-ended VQA benchmark dataset specifically designed for MLLMs, with a focus on complex reasoning tasks.
+      </h2>
       <img src="images/compare_benchmark.png" alt="banner" width="100%" />
-      <!-- <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2> -->
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column">
@@ -179,13 +171,13 @@ Language Models</h1>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Abstract</h2>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p>
             Multi-modal Large Language Models (MLLMs) are increasingly prominent in the field of artificial
@@ -215,9 +207,133 @@ challenge and accurately measure their reasoning capabilities.
 
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Statistics</h2>
+        <div class="content has-text-justified">
+          <p>
+            CORE-MM benchmark consists of 279 manually curated reasoning questions, associated with a total of 342 images.
+            The questions are divided into 3 reasoning categories--Deductive, Abductive and Analogical. 
+            49 questions pertain to abductive reasoning, 181 require deductive reasoning, and 49 involve analogicalreasoning. 
+            Furthermore, the dataset is divided into two folds based on reasoning complexity, with 108 classified as “High” reasoning complexity and 171 as “Moderate” reasoning complexity. 
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="images/reasoning_category.png" alt="data-overview" style="max-width: 85%;"/>
+          <p> 
+            Reasoning category distribution of CORE-MM.<br/>
+          </p> 
+        </div>
+      </div>
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="images/intuitive_vs_counter_intuitive.png" alt="data-overview" style="max-width: 100%;"/>
+          <p> 
+            Intuitive vs. counter-intuitive.<br/>
+          </p> 
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <img src="images/reasoning_step_distribution.png" alt="data-overview" style="max-width: 55%;"/>
+          <p> 
+            Reasoning steps distribution of CORE-MM.<br/>
+          </p> 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Examples</h2>
+
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example0.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example1.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example2.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example3.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example4.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example5.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/example6.png" alt="" width="60%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 class="title is-3">Sample Predictions</h2>
+        <p>Sampled predictions of models on CORE-MM. Model hallucinations are labelled in red.</p>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/sample_prediction1.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/sample_prediction2.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/sample_prediction3.png" alt="" width="60%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="images/sample_prediction4.png" alt="" width="60%"/>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Benchmark</h2>
+        <h2 class="title is-3">Leaderboard</h2>
         <div class="content has-text-justified">
           <p>
 
@@ -229,110 +345,18 @@ challenge and accurately measure their reasoning capabilities.
   </div>
 </section>
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Result</h2>
-        <div class="content has-text-justified">
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End paper abstract -->
-
-
-<!-- Youtube video -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container"> -->
-      <!-- Paper video. -->
-      <!-- <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video"> -->
-            <!-- Youtube embed code here -->
-            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End youtube video -->
-
-
-<!-- Video carousel 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            Your video file here
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            Your video file here
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            Your video file here 
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<!-- <section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section> -->
-<!--End paper poster -->
-
-
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@proceedings{Xiao2023core,
-        title={CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large
-Language Models},
-        author={Xiaotian Han, Quanzeng You, Yongfei Liu, Wentao Chen, Huangjie Zheng, Khalil Mrini, Xudong Lin, Yiqi
-Wang, Bohan Zhai, Jianbo Yuan, Heng Wang, and Hongxia Yang},
-        journal={Arxiv},
-        year={2023}
-        eprint={2302.12242},
-        archivePrefix={arXiv},
-        primaryClass={cs.CV}
-      }</code></pre>
+      <pre><code>@misc{han2023coremm,
+  title={CORE-MM: Complex Open-Ended Reasoning Evaluation For Multi-Modal Large Language Models}, 
+  author={Xiaotian Han and Quanzeng You and Yongfei Liu and Wentao Chen and Huangjie Zheng and Khalil Mrini and Xudong Lin and Yiqi Wang and Bohan Zhai and Jianbo Yuan and Heng Wang and Hongxia Yang},
+  year={2023},
+  eprint={2311.11567},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
