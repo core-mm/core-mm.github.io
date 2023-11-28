@@ -48,6 +48,7 @@ Language Models</title>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="static/js/sort-table.js"></script>
 </head>
 <body>
   <div class="container">
@@ -66,8 +67,12 @@ Language Models</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                InfiMM Team @ ByteDance Ltd.
-              </span>
+                InfiMM Team <sup style="color:#6fbf73;">1</sup> <sup style="color:#ed4b82">2</sup> <sup style="color:#ffac33">3</sup> </span>
+              
+              <!-- <span class="author-block">
+                InfiMM Team @ University of Texas at Austin, Institute of Automation, Chinese Academy of Sciences and ByteDance Ltd.
+              </span> -->
+
               <!-- <span class="author-block">
                 <a href="" target="_blank">Xiaotian Han</a><sup>1</sup>,</span>
                 <span class="author-block">
@@ -104,6 +109,12 @@ Language Models</h1>
                   </span> -->
                 </div>
 
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup style="color:#6fbf73;">1</sup>ByteDance,</span><br>
+                  <span class="author-block"><sup style="color:#ed4b82">2</sup>Institute of Automation, Chinese Academy of Sciences,</span>
+                  <span class="author-block"><sup style="color:#ffac33">3</sup>University of Texas at Austin</span>
+                </div>
+
                   <!-- <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>ByteDance,<sup>2</sup>University of Texas<br>arxiv</span>
                   </div> -->
@@ -112,7 +123,7 @@ Language Models</h1>
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="" target="_blank"
+                        <a href="https://arxiv.org/abs/2311.11567" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -312,11 +323,34 @@ challenge and accurately measure their reasoning capabilities.
       <div class="column is-full-width">
         <h2 class="title is-3">Leaderboard</h2>
         <div class="content has-text-justified">
-          <p>
-
-          </p>
           <img src="images/leaderboard.png" alt="SAN"/>
         </div>
+
+        <table class="table-sort table-arrows remember-sort">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Savings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+            </tr>
+            <tr>
+              <td>February</td>
+              <td>$80</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Sum</td>
+              <td>$180</td>
+            </tr>
+          </tfoot>
+        </table>
+
       </div>
     </div>
   </div>
