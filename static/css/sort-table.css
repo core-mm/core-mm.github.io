@@ -1,0 +1,18 @@
+table { border: 1px solid black; border-collapse: collapse; }
+
+th, td { padding: 2px 5px; border: 1px solid black; }
+
+thead { background: #ddd; }
+
+table#demo2.js-sort-0 tbody tr td:nth-child(1),
+table#demo2.js-sort-1 tbody tr td:nth-child(2),
+table#demo2.js-sort-2 tbody tr td:nth-child(3),
+table#demo2.js-sort-3 tbody tr td:nth-child(4),
+table#demo2.js-sort-4 tbody tr td:nth-child(5),
+table#demo2.js-sort-5 tbody tr td:nth-child(6),
+table#demo2.js-sort-6 tbody tr td:nth-child(7),
+table#demo2.js-sort-7 tbody tr td:nth-child(8),
+table#demo2.js-sort-8 tbody tr td:nth-child(9),
+table#demo2.js-sort-9 tbody tr td:nth-child(10) {
+    background: #dee;
+}
