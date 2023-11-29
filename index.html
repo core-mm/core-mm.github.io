@@ -675,7 +675,10 @@ Language Models"
       // $(document).ready( function () {
       //   $('.mainTable').DataTable();
       // } );
-      new DataTable("#mainTable");
+      new DataTable("#mainTable", {
+        paging: false,
+        order: [[8, "dsc"]],
+      });
     </script>
   </body>
 </html>
