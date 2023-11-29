@@ -41,15 +41,16 @@ Language Models</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
 
-  <link rel="icon" href="images/logo.png">
+  <link rel="icon" href="images/InfiMM_team_logo_original.png">
 
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
-  <script src="static/js/sort-table.js"></script>
-  <link rel="stylesheet" href="static/css/sort-table.css">
 </head>
 <body>
   <div class="container">
@@ -67,7 +68,8 @@ Language Models</title>
           <div class="is-size-5 publication-authors">
             <!-- Paper authors -->
             <span class="author-block">
-              InfiMM Team <sup style="color:#6fbf73;">1</sup> <sup style="color:#ed4b82">2</sup> <sup style="color:#ffac33">3</sup> </span>
+              <img src="images/InfiMM_team_logo_original.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+            <span class="mathvista">InfiMM Team</span> <sup style="color:#6fbf73;">1</sup> <sup style="color:#ed4b82">2</sup> <sup style="color:#ffac33">3</sup> </span>
             
             <!-- <span class="author-block">
               InfiMM Team @ University of Texas at Austin, Institute of Automation, Chinese Academy of Sciences and ByteDance Ltd.
@@ -300,33 +302,216 @@ challenge and accurately measure their reasoning capabilities.
       <div class="column is-full-width">
         <h2 class="title is-3">Leaderboard</h2>
         <div class="content has-text-justified">
-          <img src="images/leaderboard.png" alt="SAN"/>
-        </div>
+          <!-- <img src="images/leaderboard.png" alt="SAN"/> -->
 
-        <!-- <table class="table-sort table-arrows remember-sort">
-          <thead>
+        <table class="display" id="mainTable">
+            <thead>
             <tr>
-              <th>Month</th>
-              <th>Savings</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>January</td>
-              <td>$100</td>
+                <th rowspan="2">MLLM</th>
+                <th rowspan="2">LLM</th>
+                <th rowspan="2">IFT</th>
+                <th colspan="3" style="text-align: center">Reasoning Category</th>
+                <th colspan="2" style="text-align: center">Reasoning Complexity</th>
+                <th rowspan="2">Overall</th>
             </tr>
             <tr>
-              <td>February</td>
-              <td>$80</td>
+                <th class="js-sort-number">Deductive</th>
+                <th class="js-sort-number">Abductive</th>
+                <th class="js-sort-number">Analogical</th>
+                <th class="js-sort-number">Moderate</th>
+                <th class="js-sort-number">High</th>
             </tr>
-          </tbody>
-          <tfoot>
+            </thead>
+            <tbody>
             <tr>
-              <td>Sum</td>
-              <td>$180</td>
+                <td><a href="#f">OpenFlamingo-v2</a></td>
+                <td>MPT-7B</td>
+                <td>No</td>
+                <td>8.88</td>
+                <td>5.3</td>
+                <td>1.11</td>
+                <td>9.47</td>
+                <td>4.72</td>
+                <td>6.82</td>
             </tr>
-          </tfoot>
-        </table> -->
+            <tr>
+                <td><a href="#f">MiniGPT-v2</a></td>
+                <td>LLaMA2-7B</td>
+                <td>Yes</td>
+                <td>11.02</td>
+                <td>13.28</td>
+                <td>5.69</td>
+                <td>14.45</td>
+                <td>7.27</td>
+                <td>10.43</td>
+            </tr>
+            <tr>
+                <td><a href="#f">Fuyu-8B</a></td>
+                <td>Persimmon-8B</td>
+                <td>No</td>
+                <td>16.42</td>
+                <td>21.49</td>
+                <td>7.78</td>
+                <td>23.06</td>
+                <td>9.91</td>
+                <td>15.7</td>
+            </tr>
+            <tr>
+                <td><a href="#f">BLIP-2</a></td>
+                <td>OPT-2.7B</td>
+                <td>No</td>
+                <td>22.76</td>
+                <td>18.96</td>
+                <td>7.5</td>
+                <td>24.05</td>
+                <td>14.18</td>
+                <td>19.31</td>
+            </tr>
+            <tr>
+                <td><a href="#f">InternLM-XComposer-VL</a></td>
+                <td>InternLM-7B</td>
+                <td>Yes</td>
+                <td>26.77</td>
+                <td>35.97</td>
+                <td>18.61</td>
+                <td>39.13</td>
+                <td>17.18</td>
+                <td>26.84</td>
+            </tr>
+            <tr>
+                <td><a href="#f">InstructBLIP</a></td>
+                <td>FLAN-T5-XXL</td>
+                <td>Yes</td>
+                <td>27.56</td>
+                <td>37.76</td>
+                <td>20.56</td>
+                <td>40.64</td>
+                <td>18.09</td>
+                <td>28.02</td>
+            </tr>
+            <tr>
+                <td><a href="#f">LLaMA-Adapter V2</a></td>
+                <td>LLaMA-7B</td>
+                <td>No</td>
+                <td>28.7</td>
+                <td>46.12</td>
+                <td>22.08</td>
+                <td>41.33</td>
+                <td>21.91</td>
+                <td>30.46</td>
+            </tr>
+            <tr>
+                <td><a href="#f">Otter</a></td>
+                <td>LLaMA-7B</td>
+                <td>Yes</td>
+                <td>22.49</td>
+                <td>33.64</td>
+                <td>13.33</td>
+                <td>35.79</td>
+                <td>12.31</td>
+                <td>22.69</td>
+            </tr>
+            <tr>
+                <td><a href="#f">mPlug-Owl2</a></td>
+                <td>LLaMA-7B</td>
+                <td>Yes</td>
+                <td>23.43</td>
+                <td>20.6</td>
+                <td>7.64</td>
+                <td>28.79</td>
+                <td>13.18</td>
+                <td>20.05</td>
+            </tr>
+            <tr>
+                <td><a href="#f">IDEFICS-9B-Instruct</a></td>
+                <td>LLaMA-7B</td>
+                <td>Yes</td>
+                <td>22.99</td>
+                <td>34.63</td>
+                <td>20.56</td>
+                <td>34.45</td>
+                <td>16.73</td>
+                <td>24.53</td>
+            </tr>
+            <tr>
+                <td><a href="#f">Emu</a></td>
+                <td>LLaMA-13B</td>
+                <td>Yes</td>
+                <td>28.9</td>
+                <td>36.57</td>
+                <td>18.19</td>
+                <td>36.18</td>
+                <td>22.0</td>
+                <td>28.24</td>
+            </tr>
+            <tr>
+                <td><a href="#f">LLaVA-1.5</a></td>
+                <td>Vicuna-13B</td>
+                <td>Yes</td>
+                <td>30.94</td>
+                <td>47.91</td>
+                <td>24.31</td>
+                <td>47.4</td>
+                <td>21.0</td>
+                <td>32.62</td>
+            </tr>
+            <tr>
+                <td><a href="#f">CogVLM-Chat</a></td>
+                <td>Vicuna-7B</td>
+                <td>Yes</td>
+                <td>36.75</td>
+                <td>47.88</td>
+                <td>28.75</td>
+                <td>55.67</td>
+                <td>22.5</td>
+                <td>37.16</td>
+            </tr>
+            <tr>
+                <td><a href="#f">Qwen-VL-Chat</a></td>
+                <td>Qwen-14B</td>
+                <td>Yes</td>
+                <td>37.55</td>
+                <td>44.39</td>
+                <td>30.42</td>
+                <td>46.61</td>
+                <td>30.09</td>
+                <td>37.39</td>
+            </tr>
+            <tr>
+                <td><a href="#f">GPT-4V</a></td>
+                <td>GPT-4</td>
+                <td>Yes</td>
+                <td>74.86</td>
+                <td>77.88</td>
+                <td>69.86</td>
+                <td>93.98</td>
+                <td>58.98</td>
+                <td>74.44</td>
+            </tr>
+              <!-- {% for item in site.data.leaderboard.records %}
+              <tr>
+                {% if item.link != null %}
+                  <td><a href="{{ item.link }}">{{ item.MLLM }}</a></td>
+                {% else %}
+                  <td>{{ item.MLLM }}</td>
+                {% endif %}
+                {% if item.LLM != null %}
+                  <td>{{ item.LLM }}</td>
+                {% else %}
+                  <td>/</td>
+                {% endif %}
+                <td>{{ item.IFT }}</td>
+                <td>{{ item.Deductive }}</td>
+                <td>{{ item.Abductive }}</td>
+                <td>{{ item.Analogical }}</td>
+                <td>{{ item.Moderate }}</td>
+                <td>{{ item.High }}</td>
+                <td>{{ item.overall }}</td>
+              </tr>
+              {% endfor %} -->
+            </tbody>
+        </table>
+        </div>
 
       </div>
     </div>
@@ -373,6 +558,13 @@ challenge and accurately measure their reasoning capabilities.
 <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
+  
+  <script>
+    // $(document).ready( function () {
+    //   $('.mainTable').DataTable();
+    // } );
+    new DataTable('#mainTable');
+  </script>
 
-  </body>
-  </html>
+</body>
+</html>
