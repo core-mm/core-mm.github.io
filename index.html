@@ -1,494 +1,560 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large
-Language Models">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="images/compare_benchmark.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <head>
+    <meta charset="utf-8" />
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta
+      name="description"
+      content="CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large
+Language Models"
+    />
+    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+    <meta
+      property="og:description"
+      content="SOCIAL MEDIA DESCRIPTION TAG TAG"
+    />
+    <meta property="og:url" content="URL OF THE WEBSITE" />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="images/compare_benchmark.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
+    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG" />
+    <meta
+      name="twitter:description"
+      content="TWITTER BANNER DESCRIPTION META TAG"
+    />
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="images/compare_benchmark.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="images/compare_benchmark.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large
+      Language Models
+    </title>
+    <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="static/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="static/css/index.css" />
 
-  <title>CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large
-Language Models</title>
-  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <link
+      href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+    <link rel="icon" href="images/InfiMM_team_logo_original.png" />
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-  <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
-
-  <link rel="icon" href="images/InfiMM_team_logo_original.png">
-
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
-</head>
-<body>
-  <div class="container">
-    <div class="column has-text-centered">
-      <img style="max-width: 200px; margin-bottom: -50px;" src="images/logo.png">
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column has-text-centered">
+        <img
+          style="max-width: 200px; margin-bottom: -50px"
+          src="images/logo.png"
+        />
+      </div>
     </div>
-  </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal Large Language Models</h1>
-          <div class="is-size-5 publication-authors">
-            <!-- Paper authors -->
-            <span class="author-block">
-              <img src="images/InfiMM_team_logo_original.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
-            <span class="mathvista">InfiMM Team</span> <sup style="color:#6fbf73;">1</sup> <sup style="color:#ed4b82">2</sup> <sup style="color:#ffac33">3</sup> </span>
-            
-            <!-- <span class="author-block">
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                CORE-MM: Complex Open-ended Reasoning Evaluation for Multi-modal
+                Large Language Models
+              </h1>
+              <div class="is-size-5 publication-authors">
+                <!-- Paper authors -->
+                <span class="author-block">
+                  <img
+                    src="images/InfiMM_team_logo_original.png"
+                    style="width: 1em; vertical-align: middle"
+                    alt="Logo"
+                  />
+                  <span class="mathvista">InfiMM Team</span>
+                  <sup style="color: #6fbf73">1</sup>
+                  <sup style="color: #ed4b82">2</sup>
+                  <sup style="color: #ffac33">3</sup>
+                </span>
+
+                <!-- <span class="author-block">
               InfiMM Team @ University of Texas at Austin, Institute of Automation, Chinese Academy of Sciences and ByteDance Ltd.
             </span> -->
-
-          </div>
-
-              <div class="is-size-5 publication-authors">
-                <span class="author-block"><sup style="color:#6fbf73;">1</sup>ByteDance,</span><br>
-                <span class="author-block"><sup style="color:#ed4b82">2</sup>Institute of Automation, Chinese Academy of Sciences,</span>
-                <span class="author-block"><sup style="color:#ffac33">3</sup>University of Texas at Austin</span>
               </div>
 
-                <!-- <div class="is-size-5 publication-authors">
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"
+                  ><sup style="color: #6fbf73">1</sup>ByteDance,</span
+                ><br />
+                <span class="author-block"
+                  ><sup style="color: #ed4b82">2</sup>Institute of Automation,
+                  Chinese Academy of Sciences,</span
+                >
+                <span class="author-block"
+                  ><sup style="color: #ffac33">3</sup>University of Texas at
+                  Austin</span
+                >
+              </div>
+
+              <!-- <div class="is-size-5 publication-authors">
                   <span class="author-block"><sup>1</sup>ByteDance,<sup>2</sup>University of Texas<br>arxiv</span>
                 </div> -->
 
-                <div class="column has-text-centered">
-                  <div class="publication-links">
-                    <!-- Arxiv PDF link -->
-                    <span class="link-block">
-                      <a href="https://arxiv.org/abs/2311.11567" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- Arxiv PDF link -->
+                  <span class="link-block">
+                    <a
+                      href="https://arxiv.org/abs/2311.11567"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
                       <span class="icon">
                         <i class="fas fa-file-pdf"></i>
                       </span>
                       <span>Paper</span>
-                      </a>
-                    </span>
+                    </a>
+                  </span>
 
-                    <!-- Github link -->
-                    <span class="link-block">
-                      <a href="https://github.com/core-mm/core-mm" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a
+                      href="https://github.com/core-mm/core-mm"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
                       <span class="icon">
                         <i class="fab fa-github"></i>
                       </span>
                       <span>Code</span>
-                      </a>
-                    </span>
+                    </a>
+                  </span>
 
-                    <span class="link-block">
-                      <a href="" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                  <span class="link-block">
+                    <a
+                      href="https://huggingface.co/datasets/InfiMM/CORE-MM"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
                       <span class="icon">
-                        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" width="15px" height="15px">
+                        <img
+                          src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                          width="15px"
+                          height="15px"
+                        />
                       </span>
                       <span>Dataset</span>
-                      </a>
-                    </span>
+                    </a>
+                  </span>
 
-                    <!-- Papers with Code link -->
-                    <span class="link-block">
-                      <a href="https://paperswithcode.com/sota/visual-question-answering-vqa-on-core-mm" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
+                  <!-- Papers with Code link -->
+                  <span class="link-block">
+                    <a
+                      href="https://paperswithcode.com/sota/visual-question-answering-vqa-on-core-mm"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
                       <span class="icon">
-                        <img src="https://info.arxiv.org/labs/images/pwc-logo.png" width="15px" height="15px">
+                        <img
+                          src="https://info.arxiv.org/labs/images/pwc-logo.png"
+                          width="15px"
+                          height="15px"
+                        />
                       </span>
                       <span>Leaderboard</span>
-                      </a>
-                    </span>
-
-                  </div>
+                    </a>
+                  </span>
                 </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="subtitle has-text-centered">
-          CORE-MM is an Open-ended VQA benchmark dataset specifically designed for MLLMs, with a focus on complex reasoning tasks.
-      </h2>
-      <img src="images/compare_benchmark.png" alt="banner" width="100%" />
-    </div>
-  </div>
-</section>
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <h2 class="subtitle has-text-centered">
+            CORE-MM is an Open-ended VQA benchmark dataset specifically designed
+            for MLLMs, with a focus on complex reasoning tasks.
+          </h2>
+          <img src="images/compare_benchmark.png" alt="banner" width="100%" />
+        </div>
+      </div>
+    </section>
 
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column">
-        <h2 class="title is-3">Keywords</h2>
-        <div class="content has-text-justified">
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+            <div class="content has-text-justified">
+              <p>
+                Multi-modal Large Language Models (MLLMs) are increasingly
+                prominent in the field of artificial intelligence. These models
+                not only excel in traditional vision-language tasks but also
+                demonstrate im- pressive performance in contemporary multi-modal
+                benchmarks. Although many of these benchmarks attempt to
+                holistically evaluate MLLMs, they typically concentrate on basic
+                reasoning tasks, often yielding only simple yes/no or
+                multi-choice responses. These methods naturally lead to
+                confusion and difficulties in conclusively determining the
+                reasoning capabilities of MLLMs. To mitigate this issue, we
+                manually curate a benchmark dataset specifically designed for
+                MLLMs, with a focus on complex reasoning tasks. Our benchmark
+                comprises three key reasoning categories: deductive, abductive,
+                and analogical reasoning. The queries in our dataset are
+                intentionally constructed to engage the reasoning capabilities
+                of MLLMs in the process of generating answers. For a fair
+                comparison across various MLLMs, we incorporate intermediate
+                reasoning steps into our evaluation criteria. In instances where
+                an MLLM is unable to produce a definitive answer, its reasoning
+                ability is evaluated by requesting intermediate reasoning steps.
+                If these steps align with our manual annotations, appropriate
+                scores are assigned. This evaluation scheme resembles methods
+                commonly used in human assess- ments, such as exams or
+                assignments, and represents what we consider a more effective
+                assessment technique compared with existing benchmarks. We
+                evaluate a selection of representative MLLMs using this
+                rigorously developed open-ended multi-step elaborate reasoning
+                benchmark, designed to challenge and accurately measure their
+                reasoning capabilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Statistics</h2>
+            <div class="content has-text-justified">
+              <p>
+                CORE-MM benchmark consists of 279 manually curated reasoning
+                questions, associated with a total of 342 images. The questions
+                are divided into 3 reasoning categories--Deductive, Abductive
+                and Analogical. 49 questions pertain to abductive reasoning, 181
+                require deductive reasoning, and 49 involve analogicalreasoning.
+                Furthermore, the dataset is divided into two folds based on
+                reasoning complexity, with 108 classified as “High” reasoning
+                complexity and 171 as “Moderate” reasoning complexity.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="content has-text-centered">
+          <img
+            src="images/statistics.png"
+            alt="dataset statistics"
+            width="80%"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">Examples</h2>
+
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example0.png" alt="" width="100%" />
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example1.png" alt="" width="100%" />
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example2.png" alt="" width="100%" />
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example3.png" alt="" width="100%" />
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example4.png" alt="" width="100%" />
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example5.png" alt="" width="100%" />
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/example6.png" alt="" width="100%" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="column is-full has-text-centered content">
+          <h2 class="title is-3">Sample Predictions</h2>
           <p>
-            Reasoning, Multi-modal Large Language Models, Benchmark, Multi-modal Chain-of-Thought, Multi-modal in-context learning
+            Sampled predictions of models on CORE-MM. Model hallucinations are
+            labelled in red.
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            Multi-modal Large Language Models (MLLMs) are increasingly prominent in the field of artificial
-intelligence. These models not only excel in traditional vision-language tasks but also demonstrate im-
-pressive performance in contemporary multi-modal benchmarks. Although many of these benchmarks
-attempt to holistically evaluate MLLMs, they typically concentrate on basic reasoning tasks, often
-yielding only simple yes/no or multi-choice responses. These methods naturally lead to confusion and
-difficulties in conclusively determining the reasoning capabilities of MLLMs. To mitigate this issue,
-we manually curate a benchmark dataset specifically designed for MLLMs, with a focus on complex
-reasoning tasks. Our benchmark comprises three key reasoning categories: deductive, abductive,
-and analogical reasoning. The queries in our dataset are intentionally constructed to engage the
-reasoning capabilities of MLLMs in the process of generating answers. For a fair comparison across
-various MLLMs, we incorporate intermediate reasoning steps into our evaluation criteria. In instances
-where an MLLM is unable to produce a definitive answer, its reasoning ability is evaluated by
-requesting intermediate reasoning steps. If these steps align with our manual annotations, appropriate
-scores are assigned. This evaluation scheme resembles methods commonly used in human assess-
-ments, such as exams or assignments, and represents what we consider a more effective assessment
-technique compared with existing benchmarks. We evaluate a selection of representative MLLMs
-using this rigorously developed open-ended multi-step elaborate reasoning benchmark, designed to
-challenge and accurately measure their reasoning capabilities. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Statistics</h2>
-        <div class="content has-text-justified">
-          <p>
-            CORE-MM benchmark consists of 279 manually curated reasoning questions, associated with a total of 342 images.
-            The questions are divided into 3 reasoning categories--Deductive, Abductive and Analogical. 
-            49 questions pertain to abductive reasoning, 181 require deductive reasoning, and 49 involve analogicalreasoning. 
-            Furthermore, the dataset is divided into two folds based on reasoning complexity, with 108 classified as “High” reasoning complexity and 171 as “Moderate” reasoning complexity. 
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="content has-text-centered">
-          <img src="images/statistics.png" alt="dataset statistics" width="80%" />
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Examples</h2>
-
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example0.png" alt="" width="100%"/>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/sample_prediction1.png" alt="" width="100%" />
+              </div>
             </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example1.png" alt="" width="100%"/>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/sample_prediction2.png" alt="" width="100%" />
+              </div>
             </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example2.png" alt="" width="100%"/>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/sample_prediction3.png" alt="" width="100%" />
+              </div>
             </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example3.png" alt="" width="100%"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example4.png" alt="" width="100%"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example5.png" alt="" width="100%"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/example6.png" alt="" width="100%"/>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="images/sample_prediction4.png" alt="" width="100%" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-  </div>
-</section>
+    </section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-      <div class="column is-full has-text-centered content">
-        <h2 class="title is-3">Sample Predictions</h2>
-        <p>Sampled predictions of models on CORE-MM. Model hallucinations are labelled in red.</p>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/sample_prediction1.png" alt="" width="100%"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/sample_prediction2.png" alt="" width="100%"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/sample_prediction3.png" alt="" width="100%"/>
-            </div>
-          </div>
-          <div class="box m-5">
-            <div class="content has-text-centered">
-              <img src="images/sample_prediction4.png" alt="" width="100%"/>
-            </div>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Leaderboard</h2>
-        <div class="content has-text-justified">
-          <!-- <img src="images/leaderboard.png" alt="SAN"/> -->
-
-        <table class="display" id="mainTable">
-            <thead>
-            <tr>
-                <th rowspan="2">MLLM</th>
-                <th rowspan="2">LLM</th>
-                <th rowspan="2">IFT</th>
-                <th colspan="3" style="text-align: center">Reasoning Category</th>
-                <th colspan="2" style="text-align: center">Reasoning Complexity</th>
-                <th rowspan="2">Overall</th>
-            </tr>
-            <tr>
-                <th class="js-sort-number">Deductive</th>
-                <th class="js-sort-number">Abductive</th>
-                <th class="js-sort-number">Analogical</th>
-                <th class="js-sort-number">Moderate</th>
-                <th class="js-sort-number">High</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><a href="#f">OpenFlamingo-v2</a></td>
-                <td>MPT-7B</td>
-                <td>No</td>
-                <td>8.88</td>
-                <td>5.3</td>
-                <td>1.11</td>
-                <td>9.47</td>
-                <td>4.72</td>
-                <td>6.82</td>
-            </tr>
-            <tr>
-                <td><a href="#f">MiniGPT-v2</a></td>
-                <td>LLaMA2-7B</td>
-                <td>Yes</td>
-                <td>11.02</td>
-                <td>13.28</td>
-                <td>5.69</td>
-                <td>14.45</td>
-                <td>7.27</td>
-                <td>10.43</td>
-            </tr>
-            <tr>
-                <td><a href="#f">Fuyu-8B</a></td>
-                <td>Persimmon-8B</td>
-                <td>No</td>
-                <td>16.42</td>
-                <td>21.49</td>
-                <td>7.78</td>
-                <td>23.06</td>
-                <td>9.91</td>
-                <td>15.7</td>
-            </tr>
-            <tr>
-                <td><a href="#f">BLIP-2</a></td>
-                <td>OPT-2.7B</td>
-                <td>No</td>
-                <td>22.76</td>
-                <td>18.96</td>
-                <td>7.5</td>
-                <td>24.05</td>
-                <td>14.18</td>
-                <td>19.31</td>
-            </tr>
-            <tr>
-                <td><a href="#f">InternLM-XComposer-VL</a></td>
-                <td>InternLM-7B</td>
-                <td>Yes</td>
-                <td>26.77</td>
-                <td>35.97</td>
-                <td>18.61</td>
-                <td>39.13</td>
-                <td>17.18</td>
-                <td>26.84</td>
-            </tr>
-            <tr>
-                <td><a href="#f">InstructBLIP</a></td>
-                <td>FLAN-T5-XXL</td>
-                <td>Yes</td>
-                <td>27.56</td>
-                <td>37.76</td>
-                <td>20.56</td>
-                <td>40.64</td>
-                <td>18.09</td>
-                <td>28.02</td>
-            </tr>
-            <tr>
-                <td><a href="#f">LLaMA-Adapter V2</a></td>
-                <td>LLaMA-7B</td>
-                <td>No</td>
-                <td>28.7</td>
-                <td>46.12</td>
-                <td>22.08</td>
-                <td>41.33</td>
-                <td>21.91</td>
-                <td>30.46</td>
-            </tr>
-            <tr>
-                <td><a href="#f">Otter</a></td>
-                <td>LLaMA-7B</td>
-                <td>Yes</td>
-                <td>22.49</td>
-                <td>33.64</td>
-                <td>13.33</td>
-                <td>35.79</td>
-                <td>12.31</td>
-                <td>22.69</td>
-            </tr>
-            <tr>
-                <td><a href="#f">mPlug-Owl2</a></td>
-                <td>LLaMA-7B</td>
-                <td>Yes</td>
-                <td>23.43</td>
-                <td>20.6</td>
-                <td>7.64</td>
-                <td>28.79</td>
-                <td>13.18</td>
-                <td>20.05</td>
-            </tr>
-            <tr>
-                <td><a href="#f">IDEFICS-9B-Instruct</a></td>
-                <td>LLaMA-7B</td>
-                <td>Yes</td>
-                <td>22.99</td>
-                <td>34.63</td>
-                <td>20.56</td>
-                <td>34.45</td>
-                <td>16.73</td>
-                <td>24.53</td>
-            </tr>
-            <tr>
-                <td><a href="#f">Emu</a></td>
-                <td>LLaMA-13B</td>
-                <td>Yes</td>
-                <td>28.9</td>
-                <td>36.57</td>
-                <td>18.19</td>
-                <td>36.18</td>
-                <td>22.0</td>
-                <td>28.24</td>
-            </tr>
-            <tr>
-                <td><a href="#f">LLaVA-1.5</a></td>
-                <td>Vicuna-13B</td>
-                <td>Yes</td>
-                <td>30.94</td>
-                <td>47.91</td>
-                <td>24.31</td>
-                <td>47.4</td>
-                <td>21.0</td>
-                <td>32.62</td>
-            </tr>
-            <tr>
-                <td><a href="#f">CogVLM-Chat</a></td>
-                <td>Vicuna-7B</td>
-                <td>Yes</td>
-                <td>36.75</td>
-                <td>47.88</td>
-                <td>28.75</td>
-                <td>55.67</td>
-                <td>22.5</td>
-                <td>37.16</td>
-            </tr>
-            <tr>
-                <td><a href="#f">Qwen-VL-Chat</a></td>
-                <td>Qwen-14B</td>
-                <td>Yes</td>
-                <td>37.55</td>
-                <td>44.39</td>
-                <td>30.42</td>
-                <td>46.61</td>
-                <td>30.09</td>
-                <td>37.39</td>
-            </tr>
-            <tr>
-                <td><a href="#f">GPT-4V</a></td>
-                <td>GPT-4</td>
-                <td>Yes</td>
-                <td>74.86</td>
-                <td>77.88</td>
-                <td>69.86</td>
-                <td>93.98</td>
-                <td>58.98</td>
-                <td>74.44</td>
-            </tr>
-              <!-- {% for item in site.data.leaderboard.records %}
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Leaderboard</h2>
+            <div class="content has-text-justified">
+              <table class="display" id="mainTable">
+                <thead>
+                  <tr>
+                    <th rowspan="2">MLLM</th>
+                    <th rowspan="2">LLM</th>
+                    <th rowspan="2">IFT</th>
+                    <th colspan="3" style="text-align: center">
+                      Reasoning Category
+                    </th>
+                    <th colspan="2" style="text-align: center">
+                      Reasoning Complexity
+                    </th>
+                    <th rowspan="2">Overall</th>
+                  </tr>
+                  <tr>
+                    <th class="js-sort-number">Deductive</th>
+                    <th class="js-sort-number">Abductive</th>
+                    <th class="js-sort-number">Analogical</th>
+                    <th class="js-sort-number">Moderate</th>
+                    <th class="js-sort-number">High</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#f">OpenFlamingo-v2</a></td>
+                    <td>MPT-7B</td>
+                    <td>No</td>
+                    <td>8.88</td>
+                    <td>5.3</td>
+                    <td>1.11</td>
+                    <td>9.47</td>
+                    <td>4.72</td>
+                    <td>6.82</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">MiniGPT-v2</a></td>
+                    <td>LLaMA2-7B</td>
+                    <td>Yes</td>
+                    <td>11.02</td>
+                    <td>13.28</td>
+                    <td>5.69</td>
+                    <td>14.45</td>
+                    <td>7.27</td>
+                    <td>10.43</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">Fuyu-8B</a></td>
+                    <td>Persimmon-8B</td>
+                    <td>No</td>
+                    <td>16.42</td>
+                    <td>21.49</td>
+                    <td>7.78</td>
+                    <td>23.06</td>
+                    <td>9.91</td>
+                    <td>15.7</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">BLIP-2</a></td>
+                    <td>OPT-2.7B</td>
+                    <td>No</td>
+                    <td>22.76</td>
+                    <td>18.96</td>
+                    <td>7.5</td>
+                    <td>24.05</td>
+                    <td>14.18</td>
+                    <td>19.31</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">InternLM-XComposer-VL</a></td>
+                    <td>InternLM-7B</td>
+                    <td>Yes</td>
+                    <td>26.77</td>
+                    <td>35.97</td>
+                    <td>18.61</td>
+                    <td>39.13</td>
+                    <td>17.18</td>
+                    <td>26.84</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">InstructBLIP</a></td>
+                    <td>FLAN-T5-XXL</td>
+                    <td>Yes</td>
+                    <td>27.56</td>
+                    <td>37.76</td>
+                    <td>20.56</td>
+                    <td>40.64</td>
+                    <td>18.09</td>
+                    <td>28.02</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">LLaMA-Adapter V2</a></td>
+                    <td>LLaMA-7B</td>
+                    <td>No</td>
+                    <td>28.7</td>
+                    <td>46.12</td>
+                    <td>22.08</td>
+                    <td>41.33</td>
+                    <td>21.91</td>
+                    <td>30.46</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">Otter</a></td>
+                    <td>LLaMA-7B</td>
+                    <td>Yes</td>
+                    <td>22.49</td>
+                    <td>33.64</td>
+                    <td>13.33</td>
+                    <td>35.79</td>
+                    <td>12.31</td>
+                    <td>22.69</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">mPlug-Owl2</a></td>
+                    <td>LLaMA-7B</td>
+                    <td>Yes</td>
+                    <td>23.43</td>
+                    <td>20.6</td>
+                    <td>7.64</td>
+                    <td>28.79</td>
+                    <td>13.18</td>
+                    <td>20.05</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">IDEFICS-9B-Instruct</a></td>
+                    <td>LLaMA-7B</td>
+                    <td>Yes</td>
+                    <td>22.99</td>
+                    <td>34.63</td>
+                    <td>20.56</td>
+                    <td>34.45</td>
+                    <td>16.73</td>
+                    <td>24.53</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">Emu</a></td>
+                    <td>LLaMA-13B</td>
+                    <td>Yes</td>
+                    <td>28.9</td>
+                    <td>36.57</td>
+                    <td>18.19</td>
+                    <td>36.18</td>
+                    <td>22.0</td>
+                    <td>28.24</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">LLaVA-1.5</a></td>
+                    <td>Vicuna-13B</td>
+                    <td>Yes</td>
+                    <td>30.94</td>
+                    <td>47.91</td>
+                    <td>24.31</td>
+                    <td>47.4</td>
+                    <td>21.0</td>
+                    <td>32.62</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">CogVLM-Chat</a></td>
+                    <td>Vicuna-7B</td>
+                    <td>Yes</td>
+                    <td>36.75</td>
+                    <td>47.88</td>
+                    <td>28.75</td>
+                    <td>55.67</td>
+                    <td>22.5</td>
+                    <td>37.16</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">Qwen-VL-Chat</a></td>
+                    <td>Qwen-14B</td>
+                    <td>Yes</td>
+                    <td>37.55</td>
+                    <td>44.39</td>
+                    <td>30.42</td>
+                    <td>46.61</td>
+                    <td>30.09</td>
+                    <td>37.39</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#f">GPT-4V</a></td>
+                    <td>GPT-4</td>
+                    <td>Yes</td>
+                    <td>74.86</td>
+                    <td>77.88</td>
+                    <td>69.86</td>
+                    <td>93.98</td>
+                    <td>58.98</td>
+                    <td>74.44</td>
+                  </tr>
+                  <!-- {% for item in site.data.leaderboard.records %}
               <tr>
                 {% if item.link != null %}
                   <td><a href="{{ item.link }}">{{ item.MLLM }}</a></td>
@@ -509,20 +575,66 @@ challenge and accurately measure their reasoning capabilities.
                 <td>{{ item.overall }}</td>
               </tr>
               {% endfor %} -->
-            </tbody>
-        </table>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@misc{han2023coremm,
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Evaluation</h2>
+            <div class="content has-text-justified">
+              <p>
+                To evaluate on our CORE-MM Benchmark, please follow below steps:
+              </p>
+              <h3>Step 0: Download Images and Questions</h3>
+              <p>
+                Images and Questions can be downloaded
+                <a href="https://huggingface.co/datasets/InfiMM/CORE-MM"
+                  ><img
+                    src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                    style="width: 1em; vertical-align: middle"
+                    alt="HFLogo"
+                  />Here</a
+                >.
+              </p>
+              <h3>Step 1: Generate Response for Your Model</h3>
+              <p>
+                Generate responses for your model on the CORE-MM dataset. The
+                response should be a json file with the following format:
+              </p>
+              <pre><code>
+{ 
+  "1": "the answer of question 1", 
+  "2": "the answer of question 2", 
+  ... 
+  "idx": "the answer of question idx" 
+}
+                </code></pre>
+              <h3>Step 2: Send Predictions to us</h3>
+              <p>
+                After generating responses for your model, please name the json
+                as <code>your_model_name.json</code> and send to us via
+                <a href="mailto:infimmbytedance@gmail.com">email</a> for
+                evaluation.
+              </p>
+              <p>We will evaluate your model and send you the results back.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@misc{han2023coremm,
   title={CORE-MM: Complex Open-Ended Reasoning Evaluation For Multi-Modal Large Language Models}, 
   author={Xiaotian Han and Quanzeng You and Yongfei Liu and Wentao Chen and Huangjie Zheng and Khalil Mrini and Xudong Lin and Yiqi Wang and Bohan Zhai and Jianbo Yuan and Heng Wang and Hongxia Yang},
   year={2023},
@@ -530,41 +642,48 @@ challenge and accurately measure their reasoning capabilities.
   archivePrefix={arXiv},
   primaryClass={cs.CV}
 }</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+      </div>
+    </section>
+    <!--End BibTex citation -->
 
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
-            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <footer class="footer">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <p>
+                This page was built using the
+                <a
+                  href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                  target="_blank"
+                  >Academic Project Page Template</a
+                >. <br />
+                This website is licensed under a
+                <a
+                  rel="license"
+                  href="http://creativecommons.org/licenses/by-sa/4.0/"
+                  target="_blank"
+                  >Creative Commons Attribution-ShareAlike 4.0 International
+                  License</a
+                >.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
 
     <!-- End of Statcounter Code -->
-  
-  <script>
-    // $(document).ready( function () {
-    //   $('.mainTable').DataTable();
-    // } );
-    new DataTable('#mainTable');
-  </script>
 
-</body>
+    <script>
+      // $(document).ready( function () {
+      //   $('.mainTable').DataTable();
+      // } );
+      new DataTable("#mainTable");
+    </script>
+  </body>
 </html>
